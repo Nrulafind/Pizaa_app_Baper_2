@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MenuAdapter : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>(){
 
-    val data = listOf("aaa","bbbb","cccc","dddd","eeee","ffff","gggg","hhhh")
+    val
+            data = listOf("aaa","bbbb","cccc","dddd","eeee","ffff","gggg","hhhh")
 
 
     override fun getItemCount(): Int {
