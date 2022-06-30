@@ -1,21 +1,16 @@
 package com.example.pizzaapp
 
-import android.app.Notification
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.DrawableContainer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pizzaapp.model.MenuModel
@@ -61,25 +56,6 @@ class activity_add_menu : AppCompatActivity() {
             val menuModel = MenuModel(id, name, price, bitmap)
             databaseHelper.addMenu(menuModel)
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle?): View? {
-        //inflate the layput for this fragment
-        val view = inflater.inflate(R.layout.fragment_makanan, container, false)
-        val rvmakanan: RecyclerView = view.findViewById(R.id.recyclerMakanan)
-        rvmakanan.layoutManager = LinearLayoutManager(activity)
-        rvmakanan.adapter = MakananAdapter()
-
-        //instance button add menu
-        val buttonAdd : Button = view.findViewById(R.id.buttonAddMenu)
-        //event saat button add menu di klik
-        buttonAdd.setOnClickListener {
-            requireActivity().run{
-                startActivity(Intent(this, activity_add_menu::class.java))
-                finish()
-            }
-        }
-        return view
     }
 
     private fun pickImageGalery() {
